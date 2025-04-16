@@ -1,0 +1,37 @@
+# Complementing a Strand of DNA fuction.
+def comp_strand(sample_dna: str) -> str:
+    #Checks for an empty list.
+    if not sample_dna:
+        raise ValueError("DNA sequence cannot be empty.")
+    
+    # Valid DNA chars
+    valid_bases = {'A', 'T', 'C', 'G'}
+
+    # Makes sure all input is valid for app
+    upper_dna = sample_dna.upper()
+
+    if any(base not in valid_bases for base in upper_dna):
+        raise ValueError("DNA seuence contains invalid characters. Allowed: A, T, C, G.")
+    
+    # DNA base complement mapping 
+    complement = {
+        'A':'T',
+        'T':'A',
+        'C': 'G',
+        'G':'C'
+    }
+
+    #Reverse the string and map each base to its complement.
+    reversed_dna = sample_dna[::-1]
+    reverse_comp = ''.join(complement[base] for base in reversed_dna)
+
+
+
+    return reverse_comp
+
+# Example usage
+try:
+    dna_seq = "GTCA"
+    print(reverse_complement(dna_seq))  # Output: TGAC
+except ValueError as err:
+    print(f"Error: {err}")
