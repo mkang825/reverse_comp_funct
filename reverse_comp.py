@@ -31,7 +31,8 @@ def comp_strand(sample_dna: str) -> str:
 
 # Example usage
 try:
-    dna_seq = "GTCA"
-    print(reverse_complement(dna_seq))  # Output: TGAC
+    dna_seq = "ATTC"
+    
+    print(comp_strand(dna_seq)) 
 except ValueError as err:
     print(f"Error: {err}")
